@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - ShieldX360</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-md w-full text-center">
+            <div class="rounded-full bg-green-100 p-3 mx-auto w-16 h-16 flex items-center justify-center">
+                <i class="fas fa-check text-3xl text-green-600"></i>
+            </div>
+            
+            <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
+                Thank You for Your Purchase!
+            </h2>
+            
+            <p class="mt-4 text-lg text-gray-600">
+                Your order has been successfully processed.
+            </p>
+            
+            <div class="mt-8 bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">Order Details</h3>
+                
+                <div class="border-t border-b py-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="font-medium" id="product-name">ShieldX360 Pro</span>
+                        <span class="text-gray-600" id="product-price">$49.00</span>
+                    </div>
+                    <p class="text-gray-600 text-sm">Annual subscription</p>
+                </div>
+                
+                <div class="mt-6">
+                    <p class="text-gray-600 mb-2">
+                        <i class="fas fa-envelope mr-2"></i>
+                        A confirmation email has been sent to your inbox.
+                    </p>
+                    <p class="text-gray-600">
+                        <i class="fas fa-download mr-2"></i>
+                        You can now download and install your security software.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-8 space-y-4">
+                <a href="/download" class="block w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 transition-colors">
+                    Download Software
+                </a>
+                
+                <a href="/" class="block w-full bg-gray-100 text-gray-700 py-3 px-4 rounded-md hover:bg-gray-200 transition-colors">
+                    Return to Homepage
+                </a>
+            </div>
+            
+            <div class="mt-8">
+                <p class="text-gray-600">
+                    Need help? <a href="/support" class="text-blue-600 hover:text-blue-500">Contact our support team</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Update product details based on URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const productName = urlParams.get('product');
+        if (productName) {
+            const productDetails = {
+                'basic': {
+                    name: 'ShieldX360 Basic',
+                    price: '$29.00'
+                },
+                'pro': {
+                    name: 'ShieldX360 Pro',
+                    price: '$49.00'
+                },
+                'ultimate': {
+                    name: 'ShieldX360 Ultimate',
+                    price: '$79.00'
+                }
+            };
+
+            const details = productDetails[productName] || productDetails['pro'];
+            document.getElementById('product-name').textContent = details.name;
+            document.getElementById('product-price').textContent = details.price;
+        }
+    </script>
+</body>
+</html>
